@@ -1,0 +1,1498 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkOS.net</name>
+    </assembly>
+    <members>
+        <member name="T:WorkOS.RequestUtilities">
+            <summary>
+            Helper utilities when issuing HTTP requests.
+            </summary>
+        </member>
+        <member name="M:WorkOS.RequestUtilities.CreateQueryString(WorkOS.BaseOptions)">
+            <summary>
+            Encodes options into a query string.
+            </summary>
+            <param name="options">Options to encode.</param>
+            <returns>The encoded query string.</returns>
+        </member>
+        <member name="M:WorkOS.RequestUtilities.CreateHttpContent(WorkOS.WorkOSRequest)">
+            <summary>
+            Creates an encoded HTTP entity body and content headers.
+            </summary>
+            <param name="request">Request to encode.</param>
+            <returns>Encoded HTTP content for a request.</returns>
+        </member>
+        <member name="M:WorkOS.RequestUtilities.ToJsonString(System.Object)">
+            <summary>
+            Serializes an object.
+            </summary>
+            <param name="value">Object to serialize.</param>
+            <returns>A serialized JSON object.</returns>
+        </member>
+        <member name="M:WorkOS.RequestUtilities.FromJson``1(System.String)">
+            <summary>
+            Deserializes a string into an object.
+            </summary>
+            <typeparam name="T">Type of object to serialize to.</typeparam>
+            <param name="value">String to deserialize.</param>
+            <returns>A deserialized object.</returns>
+        </member>
+        <member name="M:WorkOS.RequestUtilities.ParseURLParameters(System.String)">
+            <summary>
+            Parses query parameters from a URL into a dictionary.
+            </summary>
+            <param name="url">URL to parse.</param>
+            <returns>A dictionary of parameters.</returns>
+        </member>
+        <member name="T:WorkOS.WorkOSClient">
+            <summary>
+            A client to manage requests to the WorkOS API.
+            </summary>
+        </member>
+        <member name="M:WorkOS.WorkOSClient.#ctor(WorkOS.WorkOSOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.WorkOSClient"/> class.
+            </summary>
+            <param name="options">Parameters to create the client with.</param>
+        </member>
+        <member name="P:WorkOS.WorkOSClient.SdkVersion">
+            <summary>
+            Describes the .NET SDK version.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSClient.DefaultTimeout">
+            <summary>
+            Default timeout for HTTP requests.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSClient.DefaultApiBaseURL">
+            <summary>
+            Default base URL for the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSClient.ApiBaseURL">
+            <summary>
+            The base URL for the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSClient.ApiKey">
+            <summary>
+            The API key used to authenticate requests to the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSClient.HttpClient">
+            <summary>
+            The client used to make HTTP requests to the WorkOS API.
+            </summary>
+        </member>
+        <member name="M:WorkOS.WorkOSClient.DefaultHttpClient">
+            <summary>
+            Creates a new HTTP client instance.
+            </summary>
+            <returns>An instance of the HTTP client to make requests.</returns>
+        </member>
+        <member name="M:WorkOS.WorkOSClient.MakeRawAPIRequest(WorkOS.WorkOSRequest,System.Threading.CancellationToken)">
+            <summary>
+            Makes a request to the WorkOS API.
+            </summary>
+            <param name="request">The request to make to the WorkOS API.</param>
+            <param name="cancellationToken">A token used to cancel the request.</param>
+            <returns>The response from the WorkOS API.</returns>
+        </member>
+        <member name="M:WorkOS.WorkOSClient.MakeAPIRequest``1(WorkOS.WorkOSRequest,System.Threading.CancellationToken)">
+            <summary>
+            Makes a request to the WorkOS API and parses the JSON response.
+            </summary>
+            <typeparam name="T">The return type from the request.</typeparam>
+            <param name="request">The request to make to the WorkOS API.</param>
+            <param name="cancellationToken">A token used to cancel the request.</param>
+            <returns>The response from the WorkOS API.</returns>
+        </member>
+        <member name="T:WorkOS.WorkOSOptions">
+            <summary>
+            Describes options for a Client connecting to the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSOptions.ApiBaseURL">
+            <summary>
+            Base URL for the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSOptions.ApiKey">
+            <summary>
+            The API key to authenticate requests to the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSOptions.HttpClient">
+            <summary>
+            The HTTP client to make API requests.
+            </summary>
+        </member>
+        <member name="T:WorkOS.WorkOSRequest">
+            <summary>
+            Describes a request made to the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSRequest.Method">
+            <summary>
+            The HTTP method.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSRequest.Options">
+            <summary>
+            The parameters for the HTTP request.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSRequest.Path">
+            <summary>
+            The path of the WorkOS API request.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSRequest.AccessToken">
+            <summary>
+            The access token to use for authentication instead of an API key.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSRequest.WorkOSHeaders">
+            <summary>
+            Dictionary of custom WorkOS headers.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSRequest.IsJsonContentType">
+            <summary>
+            Optional flag to indicate if the request is JSON encoded.
+            </summary>
+        </member>
+        <member name="T:WorkOS.AuditTrailService">
+            <summary>
+            A service that offers methods to interact with WorkOS Audit Trail.
+            </summary>
+        </member>
+        <member name="M:WorkOS.AuditTrailService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.AuditTrailService"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.AuditTrailService.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.AuditTrailService"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="M:WorkOS.AuditTrailService.CreateEvent(WorkOS.CreateEventOptions,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates an Audit Trail event.
+            </summary>
+            <param name="options">Options representing an Event.</param>
+            <param name="idempotencyKey">An optional idempotency key.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:WorkOS.AuditTrailService.ListEvents(WorkOS.ListEventsOptions,System.Threading.CancellationToken)">
+            <summary>
+            Fetches a list of Audit Trail Events.
+            </summary>
+            <param name="options">Filter options when searching for events.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A paginated list of Audit Trail Events.</returns>
+        </member>
+        <member name="T:WorkOS.Event">
+            <summary>
+            Contains information about a WorkOS Event record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.Event.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Id">
+            <summary>
+            The Event's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Action">
+            <summary>
+            Specific activity performed by the actor.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.ActorId">
+            <summary>
+            Unique identifier of the entity performing the action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.ActorName">
+            <summary>
+            Display name of the entity performing the action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Group">
+            <summary>
+            A single domain containing related members.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Latitude">
+            <summary>
+            Latitude for where the Event originated.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Location">
+            <summary>
+            Identifier for where the Event originated.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Longitude">
+            <summary>
+            Longitude for where the Event originated.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Metadata">
+            <summary>
+            Arbitrary key-value data containing information associated with the Event.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.OccurredAt">
+            <summary>
+            ISO-8601 datetime at which the Event happened.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.TargetId">
+            <summary>
+            Unique identifier of the object or resource being acted upon.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.TargetName">
+            <summary>
+            Display name of the object or resource that is being acted upon.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Event.Type">
+            <summary>
+            Corresponding CRUD category of the Event.
+            </summary>
+        </member>
+        <member name="T:WorkOS.EventAction">
+            <summary>
+            Contains information about a WorkOS Event Action record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.EventAction.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.EventAction.Id">
+            <summary>
+            The Event Action's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.EventAction.Name">
+            <summary>
+            The name of the Event Action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.EventAction.EnvironmentId">
+            <summary>
+            The identifier of the Event Action's Environment.
+            </summary>
+        </member>
+        <member name="T:WorkOS.CreateEventOptions">
+            <summary>
+            The parameters to create an Audit Trail Event.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.Action">
+            <summary>
+            Specific activity performed by the actor.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.ActionType">
+            <summary>
+            Corresponding CRUD category of the Event.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.ActorId">
+            <summary>
+            Unique identifier of the entity performing the action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.ActorName">
+            <summary>
+            Display name of the entity performing the action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.Group">
+            <summary>
+            A single domain containing related members.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.Location">
+            <summary>
+            Identifier for where the Event originated.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.Metadata">
+            <summary>
+            Arbitrary key-value data containing information associated with the Event.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.OccurredAt">
+            <summary>
+            ISO-8601 datetime at which the Event happened.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.TargetId">
+            <summary>
+            Unique identifier of the object or resource being acted upon.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateEventOptions.TargetName">
+            <summary>
+            Display name of the object or resource that is being acted upon.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListEventsOptions">
+            <summary>
+            The parameters to fetch Audit Trail Events.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.Action">
+            <summary>
+            Specific activity performed by the actor.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.ActionType">
+            <summary>
+            Corresponding CRUD category of the Event.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.ActorId">
+            <summary>
+            Unique identifier of the entity performing the action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.ActorName">
+            <summary>
+            Display name of the entity performing the action.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.Group">
+            <summary>
+            A single domain containing related members.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.TargetId">
+            <summary>
+            Unique identifier of the object or resource being acted upon.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.TargetName">
+            <summary>
+            Display name of the object or resource that is being acted upon.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.OccurredAt">
+            <summary>
+            ISO-8601 datetime of when an event occurred.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.OccurredAtGt">
+            <summary>
+            ISO-8601 datetime of when an event occurred after.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.OccurredAtGte">
+            <summary>
+            ISO-8601 datetime of when an event occurred at or after.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.OccurredAtLt">
+            <summary>
+            ISO-8601 datetime of when an event occurred before.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.OccurredAtLte">
+            <summary>
+            ISO-8601 datetime of when an event occured at or before.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListEventsOptions.Search">
+            <summary>
+            Keyword search.
+            </summary>
+        </member>
+        <member name="T:WorkOS.DirectorySyncService">
+            <summary>
+            A service that offers methods to interact with WorkOS Directory Sync.
+            </summary>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.DirectorySyncService"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.DirectorySyncService"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.ListDirectories(WorkOS.ListDirectoriesOptions,System.Threading.CancellationToken)">
+            <summary>
+            Fetches a list of Directories.
+            </summary>
+            <param name="options">Filter options when searching for Directories.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A paginated list of Directories.</returns>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.ListUsers(WorkOS.ListUsersOptions,System.Threading.CancellationToken)">
+            <summary>
+            Fetches a list of Directory Users.
+            </summary>
+            <param name="options">Filter options when searching for Directory Users.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A paginated list of Directory Users.</returns>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.GetUser(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets a provisioned User for a Directory.
+            </summary>
+            <param name="id">Directory User unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A WorkOS Directory User record.</returns>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.DeleteDirectory(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a Directory.
+            </summary>
+            <param name="id">Directory unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.ListGroups(WorkOS.ListGroupsOptions,System.Threading.CancellationToken)">
+            <summary>
+            Fetches a list of Directory Groups.
+            </summary>
+            <param name="options">Filter options when searching for Directory Groups.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A paginated list of Directory Groups.</returns>
+        </member>
+        <member name="M:WorkOS.DirectorySyncService.GetGroup(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets a provisioned Group for a Directory.
+            </summary>
+            <param name="id">Directory Group unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A WorkOS Directory Group record.</returns>
+        </member>
+        <member name="T:WorkOS.Directory">
+            <summary>
+            Contains information about a WorkOS Directory record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.Directory.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.Id">
+            <summary>
+            The Directory's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.Name">
+            <summary>
+            The name of the Directory.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.Domain">
+            <summary>
+            The domain of the Directory.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.State">
+            <summary>
+            The linked state of the Directory.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.Type">
+            <summary>
+            Type of the directory.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.ExternalKey">
+            <summary>
+            Externally used identifier for the Directory.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.OrganizationId">
+            <summary>
+            Identifier for the Directory's Organization.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.EnvironmentId">
+            <summary>
+            Identifier for the Directory's Environment.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.CreatedAt">
+            <summary>
+            The timestamp of when the Directory was created.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Directory.UpdatedAt">
+            <summary>
+            The timestamp of when the Directory was updated.
+            </summary>
+        </member>
+        <member name="T:WorkOS.Group">
+            <summary>
+            Contains information about a WorkOS Directory Group record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.Group.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Group.Id">
+            <summary>
+            The Group's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Group.Name">
+            <summary>
+            The Group's name.
+            </summary>
+        </member>
+        <member name="T:WorkOS.User">
+            <summary>
+            Contains information about a WorkOS Directory User record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.User.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Id">
+            <summary>
+            The User's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.IdpId">
+            <summary>
+            The User's directory provider's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Username">
+            <summary>
+            The User's username.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.FirstName">
+            <summary>
+            The User's first name.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.LastName">
+            <summary>
+            The User's last name.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Emails">
+            <summary>
+            The User's e-mails.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Groups">
+            <summary>
+            The User's groups.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.State">
+            <summary>
+            The User's active state.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.RawAttributes">
+            <summary>
+            The User's raw attributes.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.CustomAttributes">
+            <summary>
+            The User's custom attributes.
+            </summary>
+        </member>
+        <member name="T:WorkOS.User.Email">
+            <summary>
+            Contains data about a User's e-mails.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Email.Primary">
+            <summary>
+            Flag to indicate if the e-mail is primary.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Email.Value">
+            <summary>
+            The User's e-mail.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Email.Type">
+            <summary>
+            The type of e-mail (ex. work).
+            </summary>
+        </member>
+        <member name="T:WorkOS.User.Group">
+            <summary>
+            Contains data about a User's groups.
+            </summary>
+        </member>
+        <member name="F:WorkOS.User.Group.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Group.Id">
+            <summary>
+            The Group's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.User.Group.Name">
+            <summary>
+            The Group's name.
+            </summary>
+        </member>
+        <member name="T:WorkOS.DirectoryState">
+            <summary>
+            An enum describing the linked state of a <see cref="T:WorkOS.Directory"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.DirectoryType">
+            <summary>
+            An enum describing the different types of a <see cref="T:WorkOS.Directory"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.UserState">
+            <summary>
+            An enum describing the state of a <see cref="T:WorkOS.User"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListDirectoriesOptions">
+            <summary>
+            The parameters to fetch Directories.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListDirectoriesOptions.Domain">
+            <summary>
+            Domain of a <see cref="T:WorkOS.Directory"/>. Can be empty.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListDirectoriesOptions.Search">
+            <summary>
+            Searchable text for a <see cref="T:WorkOS.Directory"/>. Can be empty.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListGroupsOptions">
+            <summary>
+            The parameters to fetch Directory Groups.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListGroupsOptions.Directory">
+            <summary>
+            Unique identifier of a <see cref="P:WorkOS.ListGroupsOptions.Directory"/>.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListGroupsOptions.User">
+            <summary>
+            Unique identifier of a <see cref="P:WorkOS.ListGroupsOptions.User"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListUsersOptions">
+            <summary>
+            The parameters to fetch Directory Users.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListUsersOptions.Directory">
+            <summary>
+            Unique identifier of a <see cref="P:WorkOS.ListUsersOptions.Directory"/>.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListUsersOptions.Group">
+            <summary>
+            Unique identifier of a <see cref="P:WorkOS.ListUsersOptions.Group"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.Organization">
+            <summary>
+            Contains information about a WorkOS Organization record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.Organization.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Organization.Id">
+            <summary>
+            The Organization's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Organization.Name">
+            <summary>
+            The Organization's name.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Organization.Domains">
+            <summary>
+            The Organization's domains.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Organization.CreatedAt">
+            <summary>
+            The timestamp of when the Organization was created.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Organization.UpdatedAt">
+            <summary>
+            The timestamp of when the Organization was updated.
+            </summary>
+        </member>
+        <member name="T:WorkOS.OrganizationDomain">
+            <summary>
+            Contains information about a WorkOS Organization Domain record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.OrganizationDomain.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.OrganizationDomain.Id">
+            <summary>
+            The Organization Domain's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.OrganizationDomain.Domain">
+            <summary>
+            The domain value.
+            </summary>
+        </member>
+        <member name="T:WorkOS.OrganizationsService">
+            <summary>
+            A service that offers methods to interact with WorkOS Organizations.
+            </summary>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.OrganizationsService"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.OrganizationsService"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.GetOrganization(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets an Organization.
+            </summary>
+            <param name="id">Organization unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A WorkOS Organization record.</returns>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.ListOrganizations(WorkOS.ListOrganizationsOptions,System.Threading.CancellationToken)">
+            <summary>
+            Fetches a list of Organizations.
+            </summary>
+            <param name="options">Filter options when searching for Organizations.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A paginated list of Organizations.</returns>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.CreateOrganization(WorkOS.CreateOrganizationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Creates an Organization.
+            </summary>
+            <param name="options">Parameters to create an Organization.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>The created Organization.</returns>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.DeleteOrganization(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes an Organization.
+            </summary>
+            <param name="id">Organization unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:WorkOS.OrganizationsService.UpdateOrganization(WorkOS.UpdateOrganizationOptions,System.Threading.CancellationToken)">
+            <summary>
+            Updates an Organization.
+            </summary>
+            <param name="options">Parameters to update an Organization.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>The updated Organization.</returns>
+        </member>
+        <member name="T:WorkOS.CreateOrganizationOptions">
+            <summary>
+            The parameters to create an Organization.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateOrganizationOptions.Domains">
+            <summary>
+            Domains of the <see cref="T:WorkOS.Organization"/>.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreateOrganizationOptions.Name">
+            <summary>
+            Name of the <see cref="T:WorkOS.Organization"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListOrganizationsOptions">
+            <summary>
+            The parameters to fetch Organizations.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListOrganizationsOptions.Domains">
+            <summary>
+            Domains of an <see cref="T:WorkOS.Organization"/>. Can be empty.
+            </summary>
+        </member>
+        <member name="T:WorkOS.UpdateOrganizationOptions">
+            <summary>
+            The parameters to update an Organization.
+            </summary>
+        </member>
+        <member name="P:WorkOS.UpdateOrganizationOptions.Organization">
+            <summary>
+            Unique Identifier of the <see cref="P:WorkOS.UpdateOrganizationOptions.Organization"/>.
+            </summary>
+        </member>
+        <member name="P:WorkOS.UpdateOrganizationOptions.Domains">
+            <summary>
+            Domains of the <see cref="P:WorkOS.UpdateOrganizationOptions.Organization"/>.
+            </summary>
+        </member>
+        <member name="P:WorkOS.UpdateOrganizationOptions.Name">
+            <summary>
+            Name of the <see cref="P:WorkOS.UpdateOrganizationOptions.Organization"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.PasswordlessSession">
+            <summary>
+            Contains information about a WorkOS Passwordless Session record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.PasswordlessSession.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.PasswordlessSession.Id">
+            <summary>
+            The Passwordless Session's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.PasswordlessSession.Email">
+            <summary>
+            The e-mail of the user to authenticate.
+            </summary>
+        </member>
+        <member name="P:WorkOS.PasswordlessSession.ExpiresAt">
+            <summary>
+            Datetime at which the Passwordless Session expires.
+            </summary>
+        </member>
+        <member name="P:WorkOS.PasswordlessSession.Link">
+            <summary>
+            The URL to confirm the Passwordless Session.
+            </summary>
+        </member>
+        <member name="T:WorkOS.PasswordlessSessionType">
+            <summary>
+            Enumerations for the different WorkOS Passwordless Session types.
+            </summary>
+        </member>
+        <member name="T:WorkOS.PasswordlessService">
+            <summary>
+            A service that offers methods to interact with WorkOS Passwordless.
+            </summary>
+        </member>
+        <member name="M:WorkOS.PasswordlessService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.PasswordlessService"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.PasswordlessService.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.PasswordlessService"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="M:WorkOS.PasswordlessService.CreateSession(WorkOS.CreatePasswordlessSessionOptions,System.Threading.CancellationToken)">
+            <summary>
+            Creates a Passwordless Session for authenticating a user.
+            </summary>
+            <param name="options">Parameters to create the Passwordless Session.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>The created Passwordless Session.</returns>
+        </member>
+        <member name="M:WorkOS.PasswordlessService.SendSession(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sends the link to confirm a Passwordless Session.
+            </summary>
+            <param name="id">Passwordless Session identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="T:WorkOS.CreatePasswordlessSessionOptions">
+            <summary>
+            The parameters to create a Passwordless Session.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreatePasswordlessSessionOptions.Email">
+            <summary>
+            The e-mail of the user to authenticate.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreatePasswordlessSessionOptions.Type">
+            <summary>
+            The type of Passwordless Session to create.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreatePasswordlessSessionOptions.RedirectURI">
+            <summary>
+            An optional parameter of the location that the user will be
+            redirected to after authenticating.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreatePasswordlessSessionOptions.Connection">
+            <summary>
+            An optional parameter of the ID of a specific connection. This can
+            be used to create a Passwordless Session for a specific connection
+            rather than using the domain from the email to determine the
+            Organization and Connection.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreatePasswordlessSessionOptions.ExpiresIn">
+            <summary>
+            An optional parameter. The number of seconds the Passwordless
+            Session should live before expiring.
+            This value must be between 300 (5 minutes) and 1800 (30 minutes),
+            inclusive.
+            </summary>
+        </member>
+        <member name="P:WorkOS.CreatePasswordlessSessionOptions.State">
+            <summary>
+            An optional parameter to encode information throughout the
+            authentication life cycle.
+            </summary>
+        </member>
+        <member name="T:WorkOS.Intent">
+            <summary>
+            Enumerations for the different intents when creating a Portal link.
+            </summary>
+        </member>
+        <member name="T:WorkOS.PortalService">
+            <summary>
+            A service that offers methods to interact with WorkOS Portal.
+            </summary>
+        </member>
+        <member name="M:WorkOS.PortalService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.PortalService"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.PortalService.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.PortalService"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="M:WorkOS.PortalService.GenerateLink(WorkOS.GenerateLinkOptions,System.Threading.CancellationToken)">
+            <summary>
+            Generates a link to the Admin Portal.
+            </summary>
+            <param name="options">Parameters to create an Admin Portal link.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>The Admin Portal URL.</returns>
+        </member>
+        <member name="T:WorkOS.GenerateLinkOptions">
+            <summary>
+            The parameters to generate a link to the WorkOS Admin Portal.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GenerateLinkOptions.Intent">
+            <summary>
+            Intent of the Admin Portal.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GenerateLinkOptions.Organization">
+            <summary>
+            <see cref="P:WorkOS.GenerateLinkOptions.Organization"/> identifier to scope the Portal session.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GenerateLinkOptions.ReturnURL">
+            <summary>
+            The URL users will return to when finished with the Admin Portal.
+            </summary>
+        </member>
+        <member name="T:WorkOS.GenerateLinkResponse">
+            <summary>
+            The response from generating an Admin Portal link.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GenerateLinkResponse.Link">
+            <summary>
+            The generated link to the Admin Portal.
+            </summary>
+        </member>
+        <member name="T:WorkOS.Connection">
+            <summary>
+            Contains information about a WorkOS Connection record.
+            </summary>
+        </member>
+        <member name="F:WorkOS.Connection.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.Id">
+            <summary>
+            The Connection's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.OrganizationId">
+            <summary>
+            The unique identifier for the Organization in which the Connection resides.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.Name">
+            <summary>
+            The name of the Connection.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.ConnectionType">
+            <summary>
+            The type of the Connection.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.State">
+            <summary>
+            The linked state of the Connection.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.Status">
+            <summary>
+            The linked status of the Connection.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.Domains">
+            <summary>
+            Domain records for the Connection.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.CreatedAt">
+            <summary>
+            The timestamp of when the Connection was created.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Connection.UpdatedAt">
+            <summary>
+            The timestamp of when the Connection was updated.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ConnectionDomain">
+            <summary>
+            Describes the domain records associated with a <see cref="T:WorkOS.Connection"/>.
+            </summary>
+        </member>
+        <member name="F:WorkOS.ConnectionDomain.Object">
+            <summary>
+            Description of the record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ConnectionDomain.Id">
+            <summary>
+            Connection Domain identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ConnectionDomain.Domain">
+            <summary>
+            The Domain for a <see cref="T:WorkOS.Connection"/> record.
+            </summary>
+        </member>
+        <member name="T:WorkOS.Profile">
+            <summary>
+            Contains information about an authenticated User.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.Id">
+            <summary>
+            The identifier for the Profile.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.IdpId">
+            <summary>
+            The Profile's identity provider's identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.ConnectionId">
+            <summary>
+            The identifier for the <see cref="T:WorkOS.Connection"/> associated with the Profile.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.ConnectionType">
+            <summary>
+            The Connection type associated with the Profile.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.Email">
+            <summary>
+            The User's e-mail.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.FirstName">
+            <summary>
+            The first name of the User.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.LastName">
+            <summary>
+            The last name of the User.
+            </summary>
+        </member>
+        <member name="P:WorkOS.Profile.RawAttributes">
+            <summary>
+            The raw response of Profile attributes from the identity provider.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ConnectionState">
+            <summary>
+            An enum describing the linked state of a <see cref="T:WorkOS.Connection"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ConnectionStatus">
+            <summary>
+            An enum describing the linked status of a <see cref="T:WorkOS.Connection"/>.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ConnectionType">
+            <summary>
+            Constants that enumerate available <see cref="T:WorkOS.Connection"/> types.
+            </summary>
+        </member>
+        <member name="T:WorkOS.SSOService">
+            <summary>
+            A service that offers methods to interact with WorkOS SSO.
+            </summary>
+        </member>
+        <member name="M:WorkOS.SSOService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.SSOService"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.SSOService.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.SSOService"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="M:WorkOS.SSOService.GetAuthorizationURL(WorkOS.GetAuthorizationURLOptions)">
+            <summary>
+            Generates an Authorization URL to initiate the WorkOS OAuth 2.0 flow.
+            </summary>
+            <param name="options">Parameters used to generate the URL.</param>
+            <returns>An Authorization URL.</returns>
+        </member>
+        <member name="M:WorkOS.SSOService.GetProfileAndToken(WorkOS.GetProfileAndTokenOptions,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a <see cref="T:WorkOS.Profile"/> for an authenticated User.
+            </summary>
+            <param name="options">Options to fetch an authenticated User.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A WorkOS Profile record.</returns>
+        </member>
+        <member name="M:WorkOS.SSOService.GetProfile(WorkOS.GetProfileOptions,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a <see cref="T:WorkOS.Profile"/> for an authenticated User using an access token.
+            </summary>
+            <param name="options">Options to fetch an authenticated User.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A WorkOS Profile record.</returns>
+        </member>
+        <member name="M:WorkOS.SSOService.ListConnections(WorkOS.ListConnectionsOptions,System.Threading.CancellationToken)">
+            <summary>
+            Fetches a list of Connections.
+            </summary>
+            <param name="options">Filter options when searching for Connections.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A paginated list of Connections.</returns>
+        </member>
+        <member name="M:WorkOS.SSOService.GetConnection(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets a Connection.
+            </summary>
+            <param name="id">Connection unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A WorkOS Connection record.</returns>
+        </member>
+        <member name="M:WorkOS.SSOService.DeleteConnection(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a Connection.
+            </summary>
+            <param name="id">Connection unique identifier.</param>
+            <param name="cancellationToken">
+            An optional token to cancel the request.
+            </param>
+            <returns>A deleted WorkOS Connection record.</returns>
+        </member>
+        <member name="T:WorkOS.GetAuthorizationURLOptions">
+            <summary>
+            Describes options to create a WorkOS Authorization URL.
+            </summary>
+        </member>
+        <member name="F:WorkOS.GetAuthorizationURLOptions.ResponseType">
+            <summary>
+            Describes which grant to use. Will always be `code`.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetAuthorizationURLOptions.ClientId">
+            <summary>
+            The WorkOS Project identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetAuthorizationURLOptions.Domain">
+            <summary>
+            The Enterprise's domain.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetAuthorizationURLOptions.Connection">
+            <summary>
+            The unique identifier for a <see cref="P:WorkOS.GetAuthorizationURLOptions.Connection"/> record.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetAuthorizationURLOptions.Provider">
+            <summary>
+            An optional parameter that specifies the type of Connection to
+            authenticate with. If used, a user of any domain can be
+            authenticated. Only `GoogleOAuth` is currently supported.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetAuthorizationURLOptions.RedirectURI">
+            <summary>
+            A callback URL where the application redirects the user-agent after
+            an authorization code is granted.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetAuthorizationURLOptions.State">
+            <summary>
+            An optional parameter to manage state across the authorization
+            lifecycle.
+            </summary>
+        </member>
+        <member name="T:WorkOS.GetProfileAndTokenOptions">
+            <summary>
+            Describes the options to get a Profile.
+            </summary>
+        </member>
+        <member name="F:WorkOS.GetProfileAndTokenOptions.GrantType">
+            <summary>
+            Specifies the grant type. Will always be `authorization_code`.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetProfileAndTokenOptions.ClientId">
+            <summary>
+            The WorkOS Project identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetProfileAndTokenOptions.ClientSecret">
+            <summary>
+            The WorkOS Project secret key. This value is provided by the
+            <see cref="T:WorkOS.WorkOSClient"/>.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetProfileAndTokenOptions.Code">
+            <summary>
+            An authorization code used to exchange for a Profile.
+            </summary>
+        </member>
+        <member name="T:WorkOS.GetProfileAndTokenResponse">
+            <summary>
+            The response from the WorkOS API when fetching a Profile.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetProfileAndTokenResponse.AccessToken">
+            <summary>
+            An access token for the Profile.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetProfileAndTokenResponse.Profile">
+            <summary>
+            An object containing information about an authenticated User.
+            </summary>
+        </member>
+        <member name="T:WorkOS.GetProfileOptions">
+            <summary>
+            Describes the options to get a Profile.
+            </summary>
+        </member>
+        <member name="P:WorkOS.GetProfileOptions.AccessToken">
+            <summary>
+            The access token to use to retrieve the Profile.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListConnectionsOptions">
+            <summary>
+            The parameters to fetch Connections.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListConnectionsOptions.Domain">
+            <summary>
+            Domain of a <see cref="T:WorkOS.Connection"/>. Can be empty.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListConnectionsOptions.ConnectionType">
+            <summary>
+            Searchable text for a <see cref="T:WorkOS.Connection"/>. Can be empty.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListConnectionsOptions.OrganizationId">
+            <summary>
+            Organization ID of the <see cref="T:WorkOS.Connection"/>(s). Can be empty.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListMetadata">
+            <summary>
+            Contains pagination options for WorkOS records.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListMetadata.Before">
+            <summary>
+            Cursor to receive records before a provided identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListMetadata.After">
+            <summary>
+            Cursor to receive records after a provided identifier.
+            </summary>
+        </member>
+        <member name="T:WorkOS.WorkOSList`1">
+            <summary>
+            Represents a paginated list of WorkOS records.
+            </summary>
+            <typeparam name="T">Type of WorkOS entity.</typeparam>
+        </member>
+        <member name="P:WorkOS.WorkOSList`1.Data">
+            <summary>
+            List of WorkOS records.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOSList`1.ListMetadata">
+            <summary>
+            Pagination cursor options.
+            </summary>
+        </member>
+        <member name="M:WorkOS.Service.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.Service"/> class.
+            </summary>
+        </member>
+        <member name="M:WorkOS.Service.#ctor(WorkOS.WorkOSClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WorkOS.Service"/> class.
+            </summary>
+            <param name="client">A client used to make requests to WorkOS.</param>
+        </member>
+        <member name="P:WorkOS.Service.Client">
+            <summary>
+            The client used to make requests to WorkOS.
+            </summary>
+        </member>
+        <member name="T:WorkOS.BaseOptions">
+            <summary>
+            A base class to represent request options to the WorkOS API.
+            </summary>
+        </member>
+        <member name="T:WorkOS.ListOptions">
+            <summary>
+            Arguments when fetching a List of WorkOS records.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListOptions.Before">
+            <summary>
+            Pagination cursor to receive records before a provided identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListOptions.After">
+            <summary>
+            Pagination cursor to receive records after a provided identifier.
+            </summary>
+        </member>
+        <member name="P:WorkOS.ListOptions.Limit">
+            <summary>
+            Maximum number of records to return.
+            </summary>
+        </member>
+        <member name="T:WorkOS.WorkOS">
+            <summary>
+            Global configuration class for interacting with the WorkOS API.
+            </summary>
+        </member>
+        <member name="P:WorkOS.WorkOS.WorkOSClient">
+            <summary>
+            Gets or sets a default or custom <see cref="P:WorkOS.WorkOS.WorkOSClient"/>.
+            </summary>
+        </member>
+        <member name="M:WorkOS.WorkOS.SetApiKey(System.String)">
+            <summary>
+            Sets the API key.
+            </summary>
+            <param name="apiKey">The API key value.</param>
+        </member>
+    </members>
+</doc>

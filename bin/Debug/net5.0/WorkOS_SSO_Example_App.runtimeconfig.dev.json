@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/logangingerich/.dotnet/store/|arch|/|tfm|",
+      "/Users/logangingerich/.nuget/packages"
+    ]
+  }
+}
