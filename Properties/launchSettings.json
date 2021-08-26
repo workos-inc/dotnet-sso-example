@@ -23,8 +23,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation",
-        "WORKOS_API_KEY": "sk_77wH6sMmWWUgae0o6MGGeqgsE",
-        "WORKOS_CLIENT_ID": "project_01ERG1BJWYAWX9P93Y19DSYE1C"
+        "WORKOS_API_KEY": "",
+        "WORKOS_CLIENT_ID": ""
       }
     }
   }
