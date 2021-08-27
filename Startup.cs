@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WorkOS;
 
-namespace WorkOS_SSO_Example_App
+namespace WorkOS.SSOExampleApp
 {
     public class Startup
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WorkOS_SSO_Example_App.Models
+namespace WorkOS.SSOExampleApp.Models
 {
     public class ErrorViewModel
     {

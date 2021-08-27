@@ -8,20 +8,23 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WorkOS;
 
-namespace WorkOS_SSO_Example_App
+namespace WorkOS
 {
-    public class Program
+    namespace SSOExampleApp
     {
-        public static void Main(string[] args)
+        public class Program
         {
-            CreateHostBuilder(args).Build().Run();
-        }
+            public static void Main(string[] args)
+            {
+                CreateHostBuilder(args).Build().Run();
+            }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+            public static IHostBuilder CreateHostBuilder(string[] args) =>
+                Host.CreateDefaultBuilder(args)
+                    .ConfigureWebHostDefaults(webBuilder =>
+                    {
+                        webBuilder.UseStartup<Startup>();
+                    });
+        }
     }
 }

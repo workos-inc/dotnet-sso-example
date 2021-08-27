@@ -7,10 +7,10 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WorkOS_SSO_Example_App.Models;
+using WorkOS.SSOExampleApp.Models;
 using WorkOS; // Import WorkOS Package
 
-namespace WorkOS_SSO_Example_App.Controllers
+namespace WorkOS.SSOExampleApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,7 +24,7 @@ namespace WorkOS_SSO_Example_App.Controllers
         public IActionResult Index()
         {
             // Initialize the WorkOS client with your WorkOS API Key.
-            WorkOS.WorkOS.SetApiKey(Environment.GetEnvironmentVariable("WORKOS_API_KEY"));
+            WorkOS.SetApiKey(Environment.GetEnvironmentVariable("WORKOS_API_KEY"));
 
             // Initialize SSOService()
             var ssoService = new SSOService();
